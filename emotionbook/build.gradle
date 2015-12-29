@@ -1,0 +1,53 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+archivesBaseName = 'pikbook'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // SpringFramework
+    [
+        'aop',
+        'aspects',
+        'beans',
+        'context-support',
+        'core',
+        'context',
+        'expression',
+        'web',
+        'webmvc',
+        'websocket'
+    ].each { name -> compile "org.springframework:spring-${name}:4.2.4.RELEASE" }
+
+    [
+        'web',
+        'config',
+        'taglibs'
+    ].each { name -> compile "org.springframework.security:spring-security-${name}:3.2.5.RELEASE" }
+
+	compile 'org.projectlombok:lombok:1.16.6'
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+    compile 'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE'
+    compile 'net.sourceforge.nekohtml:nekohtml:1.9.22'
+    compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.3.1'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.springframework:spring-test:4.1.5.RELEASE'
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.servlet:jstl:1.2'
+}
+
+war {
+	exclude '**/test/**'
+    archiveName "${archivesBaseName}.war"
+}
