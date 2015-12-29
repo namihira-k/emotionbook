@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'war'
 
-archivesBaseName = 'pikbook'
+archivesBaseName = 'emotionbook'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
