@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>EmotionBook</title>
+	<title th:text="#{app_00_0000}">EmotionBook</title>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
@@ -30,19 +30,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">EmotionBook</a>
+          <a class="navbar-brand" href="#" th:text="#{app_00_0000}">EmotionBook_</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a th:href="@{/view/timeline}">ホーム</a></li>
+            <li><a th:href="@{/view/timeline}" th:text="#{app_00_0006}">ホーム_</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">個人設定<span class="caret"></span></a>
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="#{app_00_0004}">個人設定_<span class="caret"></span></a>
             	<ul class="dropdown-menu">
-            		<li><a th:href="@{/view/usersetting}">設定</a></li>
+            		<li><a th:href="@{/view/usersetting}" th:text="#{app_00_0003}">設定_</a></li>
                 	<li role="separator" class="divider"></li>
-                	<li><a href="#">ログアウト</a></li>
+                	<li><a href="#" th:text="#{app_00_0002}">ログアウト_</a></li>
               	</ul>
             </li>
           </ul>

@@ -9,14 +9,14 @@
 <body>
 	<th:block layout:fragment="content">
 		<div class="page-header">
-  			<h1>タイムライン</h1>
-  			<div align=right><a href="#"><span class="glyphicon glyphicon-plus"></span>投稿する</a></div>
+  			<h1 th:text="#{app_01_0000}">タイムライン_</h1>
+  			<div align=right><span class="glyphicon glyphicon-plus"></span><a href="#" th:text="#{app_01_0001}">投稿する_</a></div>
 		</div>
 		<ul class="nav nav-pills">
-  			<li role="presentation"><a href="#">嬉しい</a></li>
-  			<li role="presentation"><a href="#">怒り</a></li>
-  			<li role="presentation"><a href="#">悲しい</a></li>
-  			<li role="presentation"><a href="#">楽しみ</a></li>
+  			<li role="presentation"><a href="#" th:text="#{app_01_0002}">嬉しい_</a></li>
+  			<li role="presentation"><a href="#" th:text="#{app_01_0003}">怒り_</a></li>
+  			<li role="presentation"><a href="#" th:text="#{app_01_0004}">悲しい_</a></li>
+  			<li role="presentation"><a href="#" th:text="#{app_01_0005}">楽しみ_</a></li>
 		</ul>
 		<div class="panel panel-default">
   			<div class="panel-heading">
