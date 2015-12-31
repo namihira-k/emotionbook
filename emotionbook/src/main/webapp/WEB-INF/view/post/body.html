@@ -1,0 +1,53 @@
+<!DOCTYPE html SYSTEM http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="common/layout">
+
+<head>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="page-header">
+  			<h1 th:text="#{app_01_0001}">投稿する_</h1>
+		</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">内容を入力してください</div>
+    		<div class="panel-body">
+	    		<form class="form-horizontal" role="form">
+		    		<div class="form-group">
+    					<label for="userId" class="col-sm-2 control-label">お名前</label>
+    					<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="userId" placeholder="ゲストさん" />
+			   		 	</div>
+  					</div>
+		    		<div class="form-group">
+    					<label for="content" class="col-sm-2 control-label">気持ち</label>
+    					<div class="col-sm-10">
+	      					<textarea class="form-control" id="content" rows="3" placeholder="お腹すいた" style="resize:none;"></textarea>
+			   		 	</div>
+  					</div>
+  					<div class="form-group">
+    					<label class="col-sm-2 control-label">感情</label>
+    					<div class="col-sm-10">
+      						<div class="radio">
+        						<label><input type="radio" name="emotionTag" id="emotionTag" value="0" checked>嬉しい</label>
+      						</div>
+      						<div class="radio">
+        						<label><input type="radio" name="emotionTag" id="emotionTag" value="1">怒り</label>
+      						</div>
+      						<div class="radio">
+        						<label><input type="radio" name="emotionTag" id="emotionTag" value="2">悲しい</label>
+      						</div>
+      						<div class="radio">
+        						<label><input type="radio" name="emotionTag" id="emotionTag" value="3">楽しい</label>
+      						</div>
+    					</div>
+  					</div>
+  				<button type="submit" class="btn btn-default">投稿する</button>
+	    		</form>
+    		</div>
+		</div>
+   	</th:block>
+</body>
+</html>

@@ -10,7 +10,7 @@
 	<th:block layout:fragment="content">
 		<div class="page-header">
   			<h1 th:text="#{app_01_0000}">タイムライン_</h1>
-  			<div align=right><span class="glyphicon glyphicon-plus"></span><a href="#" th:text="#{app_01_0001}">投稿する_</a></div>
+  			<div align=right><span class="glyphicon glyphicon-plus"></span><a th:href="@{/view/post}" th:text="#{app_01_0001}">投稿する_</a></div>
 		</div>
 		<ul class="nav nav-pills">
   			<li role="presentation"><a href="#" th:text="#{app_01_0002}">嬉しい_</a></li>
