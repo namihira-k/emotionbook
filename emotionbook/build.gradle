@@ -24,7 +24,9 @@ dependencies {
         'expression',
         'web',
         'webmvc',
-        'websocket'
+        'websocket',
+        // DB
+        'jdbc'
     ].each { name -> compile "org.springframework:spring-${name}:4.2.4.RELEASE" }
 
     [
@@ -40,9 +42,21 @@ dependencies {
     compile 'net.sourceforge.nekohtml:nekohtml:1.9.22'
     compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.3.1'
 
+    // DB
+	compile 'mysql:mysql-connector-java:5.1.38'
+
+	// jackson
+	[
+        'core',
+        'databind',
+    ].each { name -> compile "com.fasterxml.jackson.core:jackson-${name}:2.6.4" }
+	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.4'
+
+	// test
     testCompile 'junit:junit:4.12'
     testCompile 'org.springframework:spring-test:4.1.5.RELEASE'
 
+	// servlet
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     providedCompile 'javax.servlet:jstl:1.2'
 }
