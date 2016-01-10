@@ -45,8 +45,9 @@ dependencies {
 
 	// jackson
 	[
-        'core',
-        'databind',
+    	'core',
+    	'databind',
+	    'annotations'
     ].each { name -> compile "com.fasterxml.jackson.core:jackson-${name}:2.6.4" }
 	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.4'
 

@@ -5,8 +5,7 @@ package jp.co.namihira.emotionbook.integration.dto;
 
 import java.time.LocalDateTime;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -14,6 +13,6 @@ import lombok.Data;
 public class ContentDto {
     private int id;
     private String content;
-    @DateTimeFormat(iso = ISO.DATE_TIME)
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime datetime;
 }
