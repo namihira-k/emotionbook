@@ -34,8 +34,8 @@ public class ContentsDao {
         dto.setCreatedAt(LocalDateTime.now());
         final int result = jdbcTemplate.update(
                               "INSERT INTO contents "
-                              + "(content, datetime)" + " VALUES "
-                              + "(:content, :datetime)",
+                              + "(content, createdAt)" + " VALUES "
+                              + "(:content, :createdAt)",
                               new BeanPropertySqlParameterSource(dto));
         return result;
     }
