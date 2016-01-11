@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * timeline controller
  */
 @Controller
+@RequestMapping(value = TimelineViewController.BASE_URL)
 public class TimelineViewController extends AbstractViewController {
 
-    @RequestMapping(value = "/timeline", method = GET)
+    protected final static String BASE_URL = AbstractViewController.BASE_URL + "/timeline";
+
+    @RequestMapping(method = GET)
     public String get() {
         return "timeline/body";
     }

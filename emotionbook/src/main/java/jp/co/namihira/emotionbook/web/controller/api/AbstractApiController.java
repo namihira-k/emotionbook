@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * abstract api controller
  */
 @Controller
-@RequestMapping(value = "/api")
-//@RequestMapping(value = AbstractApiController.BASE_PATH)
+@RequestMapping(value = AbstractApiController.BASE_PATH)
 public abstract class AbstractApiController {
 
-//    protected final static String BASE_PATH = "/api";
+    protected final static String BASE_PATH = "/api";
 
 }
