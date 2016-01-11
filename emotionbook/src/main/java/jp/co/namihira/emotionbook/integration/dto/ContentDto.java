@@ -14,5 +14,5 @@ public class ContentDto {
     private int id;
     private String content;
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime datetime;
+    private LocalDateTime createdAt;
 }

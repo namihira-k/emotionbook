@@ -31,7 +31,7 @@ public class ContentsDao {
     }
 
     public int insert(final ContentDto dto){
-        dto.setDatetime(LocalDateTime.now());
+        dto.setCreatedAt(LocalDateTime.now());
         final int result = jdbcTemplate.update(
                               "INSERT INTO contents "
                               + "(content, datetime)" + " VALUES "
