@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * post controller
  */
 @Controller
+@RequestMapping(value = PostViewController.BASE_URL)
 public class PostViewController extends AbstractViewController {
 
-    @RequestMapping(value = "/post", method = GET)
+    protected final static String BASE_URL = AbstractViewController.BASE_URL + "/post";
+
+    @RequestMapping(method = GET)
     public String get() {
         return "post/body";
     }

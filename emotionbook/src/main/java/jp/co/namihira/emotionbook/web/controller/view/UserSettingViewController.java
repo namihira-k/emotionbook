@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * user setting controller
  */
 @Controller
+@RequestMapping(value = UserSettingViewController.BASE_URL)
 public class UserSettingViewController extends AbstractViewController {
 
-    @RequestMapping(value = "/usersetting", method = GET)
+    protected final static String BASE_URL = AbstractViewController.BASE_URL + "/usersetting";
+
+    @RequestMapping(method = GET)
     public String get() {
         return "usersetting/body";
     }

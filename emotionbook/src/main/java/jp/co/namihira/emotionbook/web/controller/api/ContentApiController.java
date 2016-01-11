@@ -19,20 +19,20 @@ import jp.co.namihira.emotionbook.integration.dto.ContentDto;
  * content api controller
  */
 @RestController
-//@RequestMapping(value = ContentApiController.BASE_PATH)
+@RequestMapping(value = ContentApiController.BASE_PATH)
 public class ContentApiController extends AbstractApiController {
 
-//    protected final static String BASE_PATH = "/contents";
+    protected final static String BASE_PATH = AbstractApiController.BASE_PATH + "/contents";
 
     @Autowired
     private ContentsDao contentsDao;
 
-    @RequestMapping(value = "/contents", method = GET)
+    @RequestMapping(method = GET)
     public List<ContentDto> get() {
         return contentsDao.selectAll();
     }
 
-    @RequestMapping(value = "/contents", method = POST)
+    @RequestMapping(method = POST)
     public ContentDto post(@RequestBody ContentDto content) {
         contentsDao.insert(content);
         return content;

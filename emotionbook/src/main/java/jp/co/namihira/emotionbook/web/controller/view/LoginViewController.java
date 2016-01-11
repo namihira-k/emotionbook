@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * login controller
  */
 @Controller
+@RequestMapping(value = LoginViewController.BASE_URL)
 public class LoginViewController extends AbstractViewController {
 
-    @RequestMapping(value = "/login", method = GET)
+    protected final static String BASE_URL = AbstractViewController.BASE_URL + "/login";
+
+    @RequestMapping(method = GET)
     public String get() {
         return "login/body";
     }
