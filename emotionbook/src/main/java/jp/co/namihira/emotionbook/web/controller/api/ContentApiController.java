@@ -5,6 +5,8 @@ package jp.co.namihira.emotionbook.web.controller.api;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,11 @@ public class ContentApiController extends AbstractApiController {
 
     @Autowired
     private ContentsDao contentsDao;
+
+    @RequestMapping(value = "/contents", method = GET)
+    public List<ContentDto> get() {
+        return contentsDao.selectAll();
+    }
 
     @RequestMapping(value = "/contents", method = POST)
     public ContentDto post(@RequestBody ContentDto content) {
