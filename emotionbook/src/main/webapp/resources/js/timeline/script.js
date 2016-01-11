@@ -1,19 +1,24 @@
 var contentList = new Vue({
     el: '#contentList',
     data: {
-    	contents: [
-    	           {
-    	        	   userId:'なみひら',
-    	        	   content:'お腹すいた(´・ω・`)',
-    	        	   createdAt:'2015/12/31　10:14'
-    	           },
-    	           {
-    	        	   userId:'なみひら',
-    	        	   content:'テストだよー(´・ω・`)',
-    	        	   createdAt:'2016/01/11　10:14'
-    	           }
-    	 ]
+    	contents: null
     },
+
+    created: function () {
+    	this.fetchContents()
+    },
+
     methods: {
+    	fetchContents: function () {
+    		var self = this;
+			$.ajax({
+				type : 'GET',
+				url : '/emotionbook/api/contents',
+				dataType : 'json',
+				success : function(data) {
+					self.contents = data;
+				}
+			});
+    	}
     }
 })

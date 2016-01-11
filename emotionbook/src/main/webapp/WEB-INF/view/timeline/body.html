@@ -20,10 +20,10 @@
   			<li role="presentation"><a href="#" th:text="#{app_01_0005}">楽しみ_</a></li>
 		</ul>
 		<div id="contentList">
-			<div v-for="content in contents">
+			<div v-for="content in contents | orderBy 'id' -1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">お名前：{{ content.userId }}</h3>
+                        <h3 class="panel-title">{{ content.userId }}</h3>
                         <div align=right>{{ content.createdAt }}</div>
   			       </div>
   			       <div class="panel-body">{{ content.content }}</div>
