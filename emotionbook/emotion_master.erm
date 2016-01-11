@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2015-12-31 11:54:56</creation_date>
-			<updated_date>2015-12-31 19:11:28</updated_date>
+			<updated_date>2016-01-11 15:17:48</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -203,8 +203,8 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>datetime</logical_name>
-			<physical_name>datetime</physical_name>
+			<logical_name>createdAt</logical_name>
+			<physical_name>createdAt</physical_name>
 			<type>datetime</type>
 		</word>
 		<word>
@@ -266,7 +266,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>2</word_id>
+					<word_id>3</word_id>
 					<id>0</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -400,7 +400,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>3</word_id>
+					<word_id>2</word_id>
 					<id>3</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
