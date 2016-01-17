@@ -9,11 +9,15 @@ var contentList = new Vue({
   },
 
   methods: {
-    fetchContents: function () {
+    fetchContents: function (emotionTagId) {
       var self = this;
+      var targetUrl = '/emotionbook/api/contents';
+      if (emotionTagId || emotionTagId==0) {
+          targetUrl += '?emotionTagId=' + emotionTagId;
+      }
       $.ajax({
         type : 'GET',
-        url : '/emotionbook/api/contents',
+        url : targetUrl,
         dataType : 'json',
         success : function(data) {
           self.contents = data;

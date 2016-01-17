@@ -8,33 +8,32 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.min.js"></script>
 </head>
 <body>
-	<th:block layout:fragment="content">
-		<div class="page-header">
-  			<h1 th:text="#{app_01_0000}">タイムライン_</h1>
-  			<div align=right><span class="glyphicon glyphicon-plus"></span><a th:href="@{/view/post}" th:text="#{app_01_0001}">投稿する_</a></div>
-		</div>
-		<ul class="nav nav-pills">
-  			<li role="presentation"><a href="#" th:text="#{app_01_0002}">嬉しい_</a></li>
-  			<li role="presentation"><a href="#" th:text="#{app_01_0003}">怒り_</a></li>
-  			<li role="presentation"><a href="#" th:text="#{app_01_0004}">悲しい_</a></li>
-  			<li role="presentation"><a href="#" th:text="#{app_01_0005}">楽しみ_</a></li>
-		</ul>
-		<div id="js-content-list">
-			<div v-for="content in contents | orderBy 'id' -1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">ゲストさん</h3>
-                        <div align=right>{{ content.createdAt }}</div>
-  			       </div>
-  			       <div class="panel-body">{{ content.content }}</div>
-                </div>
-			</div>
-		</div>
-   	</th:block>
+  <th:block layout:fragment="content">
+  <div class="page-header">
+    <h1 th:text="#{app_01_0000}">タイムライン_</h1>
+  	<div align=right><span class="glyphicon glyphicon-plus"></span><a th:href="@{/view/post}" th:text="#{app_01_0001}">投稿する_</a></div>
+  </div>
+  <div id="js-content-list">
+	<ul class="nav nav-pills">
+      <li role="presentation"><a v-on:click="fetchContents(0)" th:text="#{app_01_0002}">嬉しい_</a></li>
+      <li role="presentation"><a v-on:click="fetchContents(1)" th:text="#{app_01_0003}">怒り_</a></li>
+      <li role="presentation"><a v-on:click="fetchContents(2)" th:text="#{app_01_0004}">悲しい_</a></li>
+      <li role="presentation"><a v-on:click="fetchContents(3)" th:text="#{app_01_0005}">楽しみ_</a></li>
+    </ul>
+    <div v-for="content in contents | orderBy 'id' -1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">ゲストさん</h3>
+          <div align=right>{{ content.createdAt }}</div>
+        </div>
+        <div class="panel-body">{{ content.content }}</div>
+      </div>
+    </div>
+  </div>
+  </th:block>
 
-	<th:block layout:fragment="javascript">
-		<script th:src="@{/resources/js/timeline/script.js}"></script>
-	</th:block>
-
+  <th:block layout:fragment="javascript">
+    <script th:src="@{/resources/js/timeline/script.js}"></script>
+  </th:block>
 </body>
 </html>
