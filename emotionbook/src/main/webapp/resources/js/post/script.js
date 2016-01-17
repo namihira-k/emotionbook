@@ -2,7 +2,8 @@ var contentForm = new Vue({
   el: '#js-content-form',
   data: {
     newContent : {
-      content : ''
+      content : '',
+      emotionTagId : 0
     }
   },
   methods: {
