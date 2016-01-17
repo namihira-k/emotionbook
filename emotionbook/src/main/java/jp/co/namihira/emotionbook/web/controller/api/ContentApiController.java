@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jp.co.namihira.emotionbook.integration.dao.ContentEmotionDao;
 import jp.co.namihira.emotionbook.integration.dao.ContentsDao;
 import jp.co.namihira.emotionbook.integration.dto.ContentDto;
+import jp.co.namihira.emotionbook.integration.dto.ContentEmotionDto;
 
 /**
  * content api controller
@@ -26,6 +28,8 @@ public class ContentApiController extends AbstractApiController {
 
     @Autowired
     private ContentsDao contentsDao;
+    @Autowired
+    private ContentEmotionDao contentEmotionDao;
 
     @RequestMapping(method = GET)
     public List<ContentDto> get() {
@@ -35,6 +39,10 @@ public class ContentApiController extends AbstractApiController {
     @RequestMapping(method = POST)
     public ContentDto post(@RequestBody ContentDto content) {
         contentsDao.insert(content);
+        final ContentEmotionDto ce = new ContentEmotionDto();
+        ce.setContentId(content.getId());
+        ce.setEmotionTagId(content.getEmotionTagId());
+        contentEmotionDao.insert(ce);
         return content;
     }
 

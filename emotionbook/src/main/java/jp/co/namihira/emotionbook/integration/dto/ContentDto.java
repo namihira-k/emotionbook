@@ -15,4 +15,7 @@ public class ContentDto {
     private String content;
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
+
+    /* Web Model */
+    private int emotionTagId;
 }
