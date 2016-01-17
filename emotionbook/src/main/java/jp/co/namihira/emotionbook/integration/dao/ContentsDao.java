@@ -25,9 +25,18 @@ public class ContentsDao {
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 
+    public List<ContentDto> seletctByEmotionTagId(final int emotionTagId) {
+        return jdbcTemplate.query(
+                "SELECT * FROM contents WHERE id IN ("
+                + "SELECT contentId FROM content_emotion WHERE emotionTagId = " + emotionTagId
+                + ") ORDER BY id DESC LIMIT 100",
+                new BeanPropertySqlParameterSource(new ContentDto()),
+                new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
+    }
+
     public List<ContentDto> selectAll(){
         return jdbcTemplate.query(
-                "SELECT * FROM contents",
+                "SELECT * FROM contents ORDER BY id DESC LIMIT 100",
                 new BeanPropertySqlParameterSource(new ContentDto()),
                 new BeanPropertyRowMapper<ContentDto>(ContentDto.class));
     }

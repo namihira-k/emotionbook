@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.co.namihira.emotionbook.integration.dao.ContentEmotionDao;
@@ -32,8 +33,11 @@ public class ContentApiController extends AbstractApiController {
     private ContentEmotionDao contentEmotionDao;
 
     @RequestMapping(method = GET)
-    public List<ContentDto> get() {
-        return contentsDao.selectAll();
+    public List<ContentDto> get(@RequestParam(required=false) Integer emotionTagId) {
+        if (emotionTagId == null) {
+            return contentsDao.selectAll();
+        }
+        return contentsDao.seletctByEmotionTagId(emotionTagId);
     }
 
     @RequestMapping(method = POST)
