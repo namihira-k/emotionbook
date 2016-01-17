@@ -11,14 +11,14 @@ var contentList = new Vue({
   methods: {
     fetchContents: function () {
       var self = this;
-	  $.ajax({
-	    type : 'GET',
-		url : '/emotionbook/api/contents',
-		dataType : 'json',
-		success : function(data) {
-		  self.contents = data;
-	    }
-	  });
+      $.ajax({
+        type : 'GET',
+        url : '/emotionbook/api/contents',
+        dataType : 'json',
+        success : function(data) {
+          self.contents = data;
+        }
+      });
     }
   }
 })
