@@ -10,6 +10,7 @@ var contentList = new Vue({
 
   methods: {
     fetchContents: function (emotionTagId) {
+      waitingDialog.show();
       var self = this;
       var targetUrl = '/emotionbook/api/contents';
       if (emotionTagId || emotionTagId==0) {
@@ -21,6 +22,9 @@ var contentList = new Vue({
         dataType : 'json',
         success : function(data) {
           self.contents = data;
+        },
+        complete : function() {
+          waitingDialog.hide();
         }
       });
     }
