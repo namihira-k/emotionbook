@@ -7,18 +7,22 @@ var contentForm = new Vue({
     }
   },
   methods: {
-    post: function () {
+    post: function (redirectURL) {
+      waitingDialog.show('投稿中...');
+      var self = this;
       $.ajax({
         type : 'POST',
         url : '/emotionbook/api/contents',
         contentType : 'application/json',
         data : JSON.stringify(this.newContent),
         dataType : 'json',
-        success : function(json) {
-          console.log("success");
+        success : function() {
         },
-        error : function(json) {
-          console.log("error");
+        error : function() {
+        },
+        complete : function() {
+          waitingDialog.hide();
+          location.href = redirectURL + "?emotionTagId=" + self.newContent.emotionTagId;
         }
       });
     }
